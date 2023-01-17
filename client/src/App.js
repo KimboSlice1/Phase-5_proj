@@ -8,13 +8,14 @@ import NavBar from './NavBar'
 
 
 function App() {
-  //const [user, setUser] = useState(null)
-  useEffect(()=>{
+
+
+  const [loggedInUser, setLoggedInUser] = useState(null)
+
     fetch('http://localhost:4000/')
       .then(r => r.json())
-      .then(console.log("did it work")
-        )
-  }, [])
+      .then(console.log("did it work"))
+        
 // const [userToLogin, updateUserToLoginInfo]=useState(
 //   {
 //     username: '',

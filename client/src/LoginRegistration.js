@@ -3,19 +3,17 @@ import React, { useEffect, useState} from "react";
 
 function UserLoginRegistration(){
  const [loggedInUser, setLoggedInUser]=useState(null)
+
  console.log('state of loggedInUser: ', loggedInUser)
 
-useEffect(
-    ()=>{
+  useEffect(()=>{
         fetch('/userinsession')
         .then(r=>r.json())
         .then(userAlreadyLoggedIn=> {
             setLoggedInUser(userAlreadyLoggedIn)
         })
-    }, []
-)
-
-
+      }, []
+  )
 
 
 const [userToLogin, updateUserToLoginInfo]=useState(
@@ -45,7 +43,18 @@ const [userToLogin, updateUserToLoginInfo]=useState(
   }
       )
       .then(r=>r.json())
-      .then(console.log('did this work?'))
+      .then(aGoddamnUser => {
+        setLoggedInUser(aGoddamnUser)
+      })
+  }
+
+
+  const handleLogout =()=> {
+    fetch('/logout', {method: "DELETE"})
+    .then(r=>r.json())
+    .then(deletResponse => {
+      setLoggedInUser(null)
+    })
   }
 return (
     <div>
@@ -62,6 +71,8 @@ return (
         />
 
         <input type='submit'/>
+
+        <button onClick={handleLogout}>Logout</button>
       </form>
       </div>
 )}

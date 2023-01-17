@@ -1,4 +1,5 @@
 import React, { useEffect, useState} from "react";
+import NavBar from './NavBar'
 
 
 function UserLoginRegistration(){
@@ -7,7 +8,7 @@ function UserLoginRegistration(){
  console.log('state of loggedInUser: ', loggedInUser)
 
   useEffect(()=>{
-        fetch('/userinsession')
+        fetch('/login')
         .then(r=>r.json())
         .then(userAlreadyLoggedIn=> {
             setLoggedInUser(userAlreadyLoggedIn)
@@ -35,7 +36,7 @@ const [userToLogin, updateUserToLoginInfo]=useState(
   synthEvent.preventDefault()
   
 //   console.log('Lets see!')
-      fetch("/login", {
+      fetch("/userinsession", {
         method: 'POST', 
         headers: {
           'Content-type': 'application/json'},
@@ -58,6 +59,7 @@ const [userToLogin, updateUserToLoginInfo]=useState(
   }
 return (
     <div>
+      <NavBar/>
         <h2> You should log that fine little ass in first </h2>
 
         <form onSubmit={handleLoginSubmit}>

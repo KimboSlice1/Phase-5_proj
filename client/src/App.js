@@ -10,9 +10,7 @@ import NavBar from './NavBar'
 function App() {
 
 
-  const [loggedInUser, setLoggedInUser] = useState(null)
-
-    fetch('http://localhost:4000/')
+    fetch('/')
       .then(r => r.json())
       .then(console.log("did it work"))
         
@@ -59,9 +57,11 @@ function App() {
       </Routes> */}
 
       <h1>This is my home page! Yay!</h1>
+      
 
       <h2>Yo login before you start fuckin' with these kids' data</h2>
       <UserLoginRegistration login={UserLoginRegistration}/>
+      {/* <NavBar /> */}
 
       {/* <form onSubmit={handleLoginSubmit}>
         <input 

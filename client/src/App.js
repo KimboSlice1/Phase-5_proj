@@ -1,25 +1,120 @@
 import logo from './logo.svg';
 import './App.css';
+import UserHome from './UserHomePage'
+import React, { useState, useEffect } from "react";
+import { Routes, Route} from 'react-router-dom';
+import UserLoginRegistration from './LoginRegistration'
+import NavBar from './NavBar'
+
 
 function App() {
+  //const [user, setUser] = useState(null)
+  useEffect(()=>{
+    fetch('http://localhost:4000/')
+      .then(r => r.json())
+      .then(console.log("did it work")
+        )
+  }, [])
+// const [userToLogin, updateUserToLoginInfo]=useState(
+//   {
+//     username: '',
+//     password: ''
+//   }
+// )
+// console.log('STATE OF USERTOLOGIN:', userToLogin)
+
+// const handleOnChangeForUserToLogin=(synthEvent)=>{
+//   console.log(synthEvent)
+//   updateUserToLoginInfo({...userToLogin, [synthEvent.target.name]: synthEvent.target.value })
+// }
+
+
+
+// const handleLoginSubmit=(synthEvent)=>{
+// synthEvent.preventDefault()
+
+// console.log('Lets see!')
+//     fetch("/login", {
+//       method: 'POST', 
+//       headers: {
+//         'Content-type': 'application/json'},
+//       body: JSON.stringify(userToLogin)
+// }
+//     )
+//     .then(r=>r.json())
+//     .then(console.log)
+// }
+
   return (
+
+  
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <NavBar/>
+      <Routes>
+        <Route path='/'element={<UserHome /> }/>
+
+
+
+      </Routes> */}
+
+      <h1>This is my home page! Yay!</h1>
+
+      <h2>Yo login before you start fuckin' with these kids' data</h2>
+      <UserLoginRegistration login={UserLoginRegistration}/>
+
+      {/* <form onSubmit={handleLoginSubmit}>
+        <input 
+        onChange={handleOnChangeForUserToLogin}
+        name='username'
+        />
+
+        <input type='password'
+        onChange={handleOnChangeForUserToLogin}name='password'
+        />
+
+        <input type='submit'/>
+      </form> */}
+
+
+<br></br><br></br>
+<br></br><br></br>
+
+
+      <h2>If you wanna fuck around with some data sign up here</h2>
     </div>
   );
 }
 
 export default App;
+
+// console.log('Lets see!')
+  //   fetch("/login", {
+  //     method: 'POST', 
+  //     headers: {
+  //       'Content-type': 'application/json'},
+  //     body: JSON.stringify(
+  //       {
+  //       email: 'kh582013@gmail.com',
+  //       password: 'Testing_1234'
+  //     }
+  //     )
+
+  //   }
+  //   )
+      
+  // ;
+
+// const [username, setUsername] = useState('') 
+// console.log('STATE OF USERNAME:', username)
+// const [password, setPassword] = useState('') 
+// console.log('STATE OF PASSWORD:', password)
+
+// const handleUsernameOnChange=(synthEvent)=>{
+//   console.log(synthEvent)
+//   setUsername(synthEvent.target.value)
+// }
+
+// const handlePasswordOnChange=(synthEvent)=>{
+//   console.log(synthEvent)
+//   setPassword(synthEvent.target.value)
+// }

@@ -1,7 +1,7 @@
-import React from "react";
-import {NavLink} from 'react-router-dom'
+// import React from "react";
+// import {NavLink} from 'react-router-dom'
 
-function NavBar(){
+// function NavBar(){
 
 //     const navigate = useNavigate()
 //    const goHome = () => {
@@ -14,28 +14,28 @@ function NavBar(){
 //     history.push('/StudentForm')
 //    }
 
-    return(
-        <div className="navbar">
+//     return(
+//         <div className="navbar">
             
-            {/* <button className="home_button" onClick= {goHome} >Home</button> */}
-            {/* <h1 className='nav-title'></h1> */}
+//             <button className="home_button" onClick= {goHome} >Home</button>
+//             <h1 className='nav-title'></h1>
     
-            <NavLink className='nav-links' to="/">
-                Home
-            </NavLink>
-            <NavLink className='nav-links' to="/AddStudent">
-                Add A New Student
-            </NavLink>
-            <NavLink className='nav-links' to="/userinsession">
-                See My Data
-            </NavLink>
-            <NavLink className='nav-links' to="/AddData">
-                Add New Data
-            </NavLink>
-            <NavLink className='nav-links' to="/">
-                SignUp 
-             </NavLink>
-            </div>
-            )}
+//             <NavLink className='nav-links' to="/">
+//                 Home
+//             </NavLink>
+//             <NavLink className='nav-links' to="/AddStudent">
+//                 Add A New Student
+//             </NavLink>
+//             <NavLink className='nav-links' to="/userinsession">
+//                 See My Data
+//             </NavLink>
+//             <NavLink className='nav-links' to="/AddData">
+//                 Add New Data
+//             </NavLink>
+//             <NavLink className='nav-links' to="/">
+//                 SignUp 
+//              </NavLink>
+//             </div>
+//             )}
 
-export default NavBar;
+// export default NavBar;

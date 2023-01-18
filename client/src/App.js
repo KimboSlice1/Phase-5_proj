@@ -10,9 +10,9 @@ import NavBar from './NavBar'
 function App() {
 
 
-    fetch('/')
-      .then(r => r.json())
-      .then(console.log("did it work"))
+    // fetch('/')
+    //   .then(r => r.json())
+    //   .then(console.log("did it work"))
         
 // const [userToLogin, updateUserToLoginInfo]=useState(
 //   {
@@ -48,10 +48,13 @@ function App() {
 
   
     <div className="App">
-      {/* <NavBar/>
-      <Routes>
-        <Route path='/'element={<UserHome /> }/>
+      {/* <NavBar/> */}
+      {/* <Routes>
 
+        
+      <Route exact path = '/'>
+          <UserLoginRegistration />
+        </Route>
 
 
       </Routes> */}

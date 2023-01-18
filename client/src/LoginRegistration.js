@@ -1,5 +1,6 @@
 import React, { useEffect, useState} from "react";
-import NavBar from './NavBar'
+import NavBar from 'react';
+
 
 
 function UserLoginRegistration(){
@@ -7,14 +8,14 @@ function UserLoginRegistration(){
 
  console.log('state of loggedInUser: ', loggedInUser)
 
-  useEffect(()=>{
-        fetch('/login')
-        .then(r=>r.json())
-        .then(userAlreadyLoggedIn=> {
-            setLoggedInUser(userAlreadyLoggedIn)
-        })
-      }, []
-  )
+  // useEffect(()=>{
+  //       fetch('/login')
+  //       .then(r=>r.json())
+  //       .then(userAlreadyLoggedIn=> {
+  //           setLoggedInUser(userAlreadyLoggedIn)
+  //       })
+  //     }, []
+  // )
 
 
 const [userToLogin, updateUserToLoginInfo]=useState(
@@ -36,7 +37,7 @@ const [userToLogin, updateUserToLoginInfo]=useState(
   synthEvent.preventDefault()
   
 //   console.log('Lets see!')
-      fetch("/userinsession", {
+      fetch("/login", {
         method: 'POST', 
         headers: {
           'Content-type': 'application/json'},
@@ -53,13 +54,13 @@ const [userToLogin, updateUserToLoginInfo]=useState(
   const handleLogout =()=> {
     fetch('/logout', {method: "DELETE"})
     .then(r=>r.json())
-    .then(deletResponse => {
+    .then(deleteResponse => {
       setLoggedInUser(null)
     })
   }
 return (
     <div>
-      <NavBar/>
+      {/* <NavBar/> */}
         <h2> You should log that fine little ass in first </h2>
 
         <form onSubmit={handleLoginSubmit}>

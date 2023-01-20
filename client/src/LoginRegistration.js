@@ -1,10 +1,12 @@
 import React, { useEffect, useState} from "react";
+import {useNavigate} from 'react-router-dom';
 import NavBar from 'react';
 
 
 
 function UserLoginRegistration(){
  const [loggedInUser, setLoggedInUser]=useState(null)
+const navigate = useNavigate()
 
  console.log('state of loggedInUser: ', loggedInUser)
 
@@ -36,33 +38,44 @@ const [userToLogin, updateUserToLoginInfo]=useState(
   const handleLoginSubmit=(synthEvent)=>{
   synthEvent.preventDefault()
   
-//   console.log('Lets see!')
-      fetch("/login", {
-        method: 'POST', 
-        headers: {
-          'Content-type': 'application/json'},
-        body: JSON.stringify(userToLogin)
-  }
-      )
+  
+console.log('am i fucking up here?')
+  
+// method: 'POST', 
+//         headers: {
+//           'Content-type': 'application/json'},
+//         body: JSON.stringify(userToLogin)
+//   }
+//       )
+
+// /my issue is here? 
+      fetch("/login") 
       .then(r=>r.json())
       .then(aGoddamnUser => {
+        navigate('/userinsession');
         setLoggedInUser(aGoddamnUser)
-      })
+      })}
+  console.log("hi Nathan")
+  
+
+  function handleLogout() {
+    fetch('/logout', { method: "DELETE" })
+      .then(r => r.json())
+      .then(deleteResponse => {
+        setLoggedInUser(null);
+      });
   }
 
 
-  const handleLogout =()=> {
-    fetch('/logout', {method: "DELETE"})
-    .then(r=>r.json())
-    .then(deleteResponse => {
-      setLoggedInUser(null)
-    })
-  }
+//  function handSignUp(){
+
+//  }
+
 return (
     <div>
       {/* <NavBar/> */}
-        <h2> You should log that fine little ass in first </h2>
-
+      <h2>Yo login before you start fuckin' with these kids' data</h2>
+        
         <form onSubmit={handleLoginSubmit}>
         <input 
         onChange={handleOnChangeForUserToLogin}
@@ -78,6 +91,11 @@ return (
         <button onClick={handleLogout}>Logout</button>
       </form>
       </div>
-)}
+)
+
+// function newFunction() {
+//   navigate('/userinsession');
+// }
+}
 
 export default UserLoginRegistration;

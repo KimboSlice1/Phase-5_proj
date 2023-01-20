@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import UserHome from './UserHomePage'
+import UserHome from './UserHome'
 import React, { useState, useEffect } from "react";
-import { Routes, Route} from 'react-router-dom';
+import { Routes, Route, useNavigate} from 'react-router-dom';
 import UserLoginRegistration from './LoginRegistration'
 import NavBar from './NavBar'
 
@@ -49,23 +49,23 @@ function App() {
   
     <div className="App">
       {/* <NavBar/> */}
-      {/* <Routes>
+<header className='App-header'>
+      <h1>This is my home page! Yay!
+      <NavBar/>
+      </h1>
+      </header>
 
-        
-      <Route exact path = '/'>
-          <UserLoginRegistration />
-        </Route>
-
-
-      </Routes> */}
-
-      <h1>This is my home page! Yay!</h1>
       
+      {/* <Routes>
+      <Route path='/login' element={<UserLoginRegistration />} />
+      <Route path='/userinsession' element={<UserHome />} />
+      </Routes> */}
+{/* <UserLoginRegistration /> */}
 
-      <h2>Yo login before you start fuckin' with these kids' data</h2>
-      <UserLoginRegistration login={UserLoginRegistration}/>
-      {/* <NavBar /> */}
-
+      <Routes>
+        <Route path='/' element={<UserLoginRegistration />} />
+        <Route path='/userinsession' element={<UserHome />} />
+      </Routes>
       {/* <form onSubmit={handleLoginSubmit}>
         <input 
         onChange={handleOnChangeForUserToLogin}
@@ -85,6 +85,7 @@ function App() {
 
 
       <h2>If you wanna fuck around with some data sign up here</h2>
+
     </div>
   );
 }

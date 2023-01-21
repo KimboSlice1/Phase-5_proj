@@ -1,18 +1,45 @@
-// import React, {useState, useEffect, useParams} from "react"
-// import { Route, Routes, useNavigate, createSearchParams } from "react-router-dom"
-// import { redirect } from "react-router-dom"
-// import StudentCard from './StudentCard'
+import React, {useState, useEffect} from "react"
+
+
+
+function Student(){
+    const [students, setStudents] = useState([]);
+    // const [user, setUser] = useState(null)
+
+    useEffect(()=>{
+      fetch('/students')
+        .then(r => r.json())
+        .then(arrayOfData =>
+          setStudents(arrayOfData)
+          )
+    }, [])
+    // console.log(students)
+
+    // const [showData, setShowData] =useState(true)
+    // const toggleBio=()=>{
+    //     setShowData(!showData)
+    // }
+
+    return(
+        <div className="students-list">
+            <h4>{students.name}</h4>  
+        </div>    
+
+)
+    
+}
+
 
 // const Student = ({filteredStudentData, setData, path = '/Adddata'}) => {
 //     // const params = useParams();
   
   
-//     const [singleStudentData, setSingleStudentData] = useState([])
-//     useEffect(() => {
-//       fetch(`/Addata/`)
-//       .then((r) => r.json())
-//       .then(setSingleStudentData)
-//     }, [])
+//     // const [singleStudentData, setSingleStudentData] = useState([])
+//     // useEffect(() => {
+//     //   fetch('/Addata/')
+//     //   .then((r) => r.json())
+//     //   .then(setSingleStudentData)
+//     // }, [])
     
   
 //     const navigate = useNavigate()
@@ -35,11 +62,11 @@
 //                   </select>
 //                  <button onClick={ () => navigate(path)}>back</button>
         
-//                  <StudentCard singleStudentData={singleStudentData}/>
+//                  {/* <StudentCard singleStudentData={singleStudentData}/> */}
 //                 <h3 className='student-info'></h3>
 //             </div>
         
 //           )
 //         }
 
-//         export default Student;
+        export default Student;

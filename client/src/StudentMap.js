@@ -1,10 +1,26 @@
 import React from "react";
+import Student from './Student';
 
+function StudentMap({students}){
+  console.log(students)
+
+  return(
+    <ul className='cards'>
+{
+  students.map(studentObj =>         <Student 
+      key={studentObj.id}
+      student={studentObj}
+      />)
+}
+
+    </ul>
+  )
+}
 // const StudentCard = ({singleStudentData}) => {
 //     // const [studentCard, setStudentCard] = useState()
 
 //     // useEffect(() => {
-//     //   fetch(`/students/${id}`)
+//     //   fetch('/students')
 //     //   .then((r) => r.json())
 //     //   .then(setStudentCard)
 //     // }, [])
@@ -26,5 +42,6 @@ import React from "react";
 
 //     )
 //   }
+// }
 
-//   export default StudentCard;
+  export default StudentMap;

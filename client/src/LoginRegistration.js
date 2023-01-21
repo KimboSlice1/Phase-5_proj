@@ -89,7 +89,11 @@ return (
         <input type='submit'/>
 
         <button onClick={handleLogout}>Logout</button>
+
+        <h2>If you wanna fuck around with some data sign up here</h2>
+
       </form>
+      
       </div>
 )
 

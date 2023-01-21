@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route, useNavigate} from 'react-router-dom';
 import UserLoginRegistration from './LoginRegistration'
 import NavBar from './NavBar'
+import Student from './Student'
 
 
 function App() {
@@ -50,7 +51,7 @@ function App() {
     <div className="App">
       {/* <NavBar/> */}
 <header className='App-header'>
-      <h1>This is my home page! Yay!
+      <h1>Parachute
       <NavBar/>
       </h1>
       </header>
@@ -65,6 +66,7 @@ function App() {
       <Routes>
         <Route path='/' element={<UserLoginRegistration />} />
         <Route path='/userinsession' element={<UserHome />} />
+        <Route path='/students' element={<Student />} />
       </Routes>
       {/* <form onSubmit={handleLoginSubmit}>
         <input 
@@ -84,7 +86,7 @@ function App() {
 <br></br><br></br>
 
 
-      <h2>If you wanna fuck around with some data sign up here</h2>
+      
 
     </div>
   );

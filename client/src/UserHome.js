@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import StudentMap from './StudentMap'
 
 
 
@@ -19,8 +20,10 @@ const [user, setUser]=useState(null)
     
     return (
         <div className="UserHomePage">
-            <h1> shit work? fuck</h1>
+            <h1>Show students here</h1>
+            {/* <StudentMap /> */}
         
+        {/* {StudentMap} */}
             {/* put a button here to make you go to create data */}
             </div>
     )

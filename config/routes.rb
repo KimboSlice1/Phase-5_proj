@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :users, except: [:index]
   resources :data, only: [:show, :create, :index]
-  resources :students
+  resources :students, only: [ :index, :show, :create, :update, :destroy]
   
 
   # post '/login', to: 'sessions#create'
@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get '/login', to:'application#login'
 # CHECK YOUR PASSWORD ERROR IN POSTMAN
+
+  get '/students', to:'students#index'
 
   # post '/register', to: 'sessions#create'
   # post '/register', to: 'application#create'

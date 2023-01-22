@@ -4,7 +4,8 @@ import React, {useState, useEffect} from "react"
 
 function Student(){
     const [students, setStudents] = useState([]);
-    // const [user, setUser] = useState(null)
+    
+    const [studentName, setStudentName]= useState([])
 
     useEffect(()=>{
       fetch('/students')
@@ -13,6 +14,11 @@ function Student(){
           setStudents(arrayOfData)
           )
     }, [])
+
+    // studentName.map(studentObj =>
+    //     key={studentObj.id}
+    //     student={studentObj.name}
+    //     />)
     // console.log(students)
 
     // const [showData, setShowData] =useState(true)
@@ -21,9 +27,14 @@ function Student(){
     // }
 
     return(
-        <div className="students-list">
-            <h4>{students.name}</h4>  
+        <div className='students-list'>
+            {students.map((students) => (
+                <p className='student'>{students.name} </p>
+            )
+            )}
+        <li key={students.name}>Name</li>
         </div>    
+        
 
 )
     

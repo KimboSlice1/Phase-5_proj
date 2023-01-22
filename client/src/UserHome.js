@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import StudentMap from './StudentMap'
+import Student from './Student'
 
 
 
@@ -20,7 +20,8 @@ const [user, setUser]=useState(null)
     
     return (
         <div className="UserHomePage">
-            <h1>Show students here</h1>
+            <h2>Your list of students should go here</h2>
+            <h2>{<Student />}</h2>
             {/* <StudentMap /> */}
         
         {/* {StudentMap} */}

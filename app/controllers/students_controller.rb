@@ -54,9 +54,10 @@ class StudentsController < ApplicationController
 
     private ####
 
-    def concert_params 
-        params.permit( :city, :date, :description, :artist_id)
+    def student_params 
+        params.permit( :name)
     end
+
 
 end
 

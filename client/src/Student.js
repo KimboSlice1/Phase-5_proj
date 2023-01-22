@@ -5,7 +5,7 @@ import React, {useState, useEffect} from "react"
 function Student(){
     const [students, setStudents] = useState([]);
     
-    const [studentName, setStudentName]= useState([])
+    // const [studentName, setStudentName]= useState([])
 
     useEffect(()=>{
       fetch('/students')
@@ -29,10 +29,10 @@ function Student(){
     return(
         <div className='students-list'>
             {students.map((students) => (
-                <p className='student'>{students.name} </p>
+                <li key={students.id}>{students.name} </li>
             )
             )}
-        <li key={students.name}>Name</li>
+        {/* <li key={students.id}>Name</li> */}
         </div>    
         
 

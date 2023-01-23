@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   get '/students', to:'students#index'
 
+  get 'data', to: 'data#show'
+
   # post '/register', to: 'sessions#create'
   # post '/register', to: 'application#create'
   #500 ERROR

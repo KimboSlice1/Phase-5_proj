@@ -14,21 +14,21 @@ function NavBar(){
         <div className="navbar">
             
             {/* <button className="home_button" onClick= {goHome} >Home</button> */}
-            <h1 className='nav-title'></h1>
+            
     
             <NavLink className='nav-links' to="/">
-                Home
-            </NavLink>
-            {/* <NavLink className='nav-links' to="/AddStudent">
-                Add A New Student
+                Login
             </NavLink>
             <NavLink className='nav-links' to="/userinsession">
-                See My Data
+                Home Page
+            </NavLink>
+            <NavLink className='nav-links' to="/students">
+                See My Students
             </NavLink>
             <NavLink className='nav-links' to="/AddData">
                 Add New Data
             </NavLink>
-            <NavLink className='nav-links' to="/">
+            {/* <NavLink className='nav-links' to="/">
                 SignUp 
              </NavLink> */}
             </div>

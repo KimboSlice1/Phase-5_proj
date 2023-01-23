@@ -6,6 +6,7 @@ import { Routes, Route, useNavigate} from 'react-router-dom';
 import UserLoginRegistration from './LoginRegistration'
 import NavBar from './NavBar'
 import Student from './Student'
+import Data from './Data'
 
 
 function App() {
@@ -67,6 +68,7 @@ function App() {
         <Route path='/' element={<UserLoginRegistration />} />
         <Route path='/userinsession' element={<UserHome />} />
         <Route path='/students' element={<Student />} />
+        <Route path='/data' element={<Data />}/>
       </Routes>
       {/* <form onSubmit={handleLoginSubmit}>
         <input 

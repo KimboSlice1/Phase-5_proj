@@ -1,12 +1,12 @@
 class DataController < ApplicationController
 
 def index
-    render json: Data.all
+    render json: Datum.all
 end
 
 def show
-    data_found = Data.find_by_id(params[:id])
-    if data_found = 
+    data_found = Datum.find_by_id(params[:id])
+    if data_found 
         render json: data_found
     else
         render json: {'error': 'Data Not Found'}, status: :not_found
@@ -14,7 +14,7 @@ def show
 end
 
 def create
-    new_data = Data.create!
+    new_data = Datum.create!
     (data_params)
     if new_data.valid?
         render json: new_data, status: :created
@@ -30,3 +30,4 @@ end
         params.permit( :student_id, :user_id, :data_type, :comment)
     end
 end
+

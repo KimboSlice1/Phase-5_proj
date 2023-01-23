@@ -25,7 +25,7 @@ function NavBar(){
             <NavLink className='nav-links' to="/students">
                 See My Students
             </NavLink>
-            <NavLink className='nav-links' to="/AddData">
+            <NavLink className='nav-links' to="/Data">
                 Add New Data
             </NavLink>
             {/* <NavLink className='nav-links' to="/">

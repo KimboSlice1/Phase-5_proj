@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from 'react'
 
 function Data(){
-    const [data, setData]=useState([]);
+    const [datum, setData]=useState([]);
 
     useEffect(()=> {
         fetch('/data')
         .then(r=>r.json())
         .then(dataArray =>
-            console.log(dataArray))
+            setData(dataArray))
 
            
 
@@ -15,11 +15,11 @@ function Data(){
 
 return (
     <div className='data-container'>
-        {data.map((data)=> (
+        {datum.map((datum)=> (
             
-            <li key={data.id}>
-               {data.type}
-               {data.comment}
+            <li key={datum.id}>
+               {datum.type}
+               {datum.comment}
             </li>
             
         ))}

@@ -1,34 +1,58 @@
 import React, {useState, useEffect} from "react"
+import {useNavigate} from 'react-router-dom'
+import StudentCard from './StudentCard'
 
 
 
-function Student(){
+const Student=({filteredStudentInfo, setData, path='/Students'})=>
+{
     const [students, setStudents] = useState([]);
     
     // const [studentName, setStudentName]= useState([])
 
-    
+    useEffect(()=> {
       fetch('/students')
         .then(r => r.json())
-        .then(arrayOfData =>
-          console.log(arrayOfData)
-          )
-    
-
+        .then(setStudents)
+    },[])
     // studentName.map(studentObj =>
     //     key={studentObj.id}
     //     student={studentObj.name}
     //     />)
     // console.log(students)
+const navigate=useNavigate()
 
-  
+
+const goToStudentId=()=>
+navigate({
+  pathname: '/students',
+})  
 
     return(
         <div className='students-list'>
-            {students.map((student) => (
+          <h2>come on. Anything?</h2>
+          <select onChange={goToStudentId}>
+          {students.map((student =>
+            {
+              return(
+                <option
+                key={students.id}
+                value={students.id}>
+                  {students.name}
+                </option>
+              )
+            }))}
+
+
+          </select>
+          <button onClick={()=>navigate(path)}>back</button>
+
+
+          <StudentCard student={students}/>
+            {/* {students.map((student) => (
                 <li key={student.id}>{student.name} </li>
             )
-            )}
+            )} */}
         {/* <li key={students.id}>Name</li> */}
         </div>    
         

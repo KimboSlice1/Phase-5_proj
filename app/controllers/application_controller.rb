@@ -1,6 +1,17 @@
 class ApplicationController < ActionController::API
     include ActionController::Cookies
+    before_action :authorize_user
 
+    def check_user_in_session
+        user_already_loggedin = User.find_by(id: session[:user_id])
+
+        render json: user_already_loggedin
+    end
+     
+
+    def authorize_user
+       return render json: {error: 'No homie'}, status: :unauthorized unless check_user_in_session
+    end
     # def login
 
     #   # debugger 

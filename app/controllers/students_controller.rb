@@ -1,8 +1,11 @@
 class StudentsController < ApplicationController
-
+skip_before_action :authorize_user, only: [:index]
 
     def index
-        render json: Student.all
+        logged_in_teacher = User.find_by(id: session[:user_id])
+        render json: logged_in_teacher.students
+
+        # render json: {kimber: ':)'}
     end
     
 

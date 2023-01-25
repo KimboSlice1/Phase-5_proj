@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route, useNavigate} from 'react-router-dom';
 import LoginRegistration from './LoginRegistration'
 import NavBar from './NavBar'
-import Student from './Student'
+import Students from './Students'
 import Data from './Data'
 
 
@@ -80,7 +80,7 @@ useEffect(()=>
       <Routes>
         <Route path='/login' element={<LoginRegistration />} />
         <Route path='/user_in_session' element={<UserHome />} />
-        <Route path='/students/*' element={<Student />} />
+        <Route path='/students/*' element={<Students />} />
         <Route path='/data' element={<Data />}/>
       </Routes>
       {/* <form onSubmit={handleLoginSubmit}>

@@ -4,16 +4,19 @@ import StudentCard from './StudentCard'
 
 
 
-const Student=({filteredStudentInfo, setData})=>
+const Students=({filteredStudentInfo, setData})=>
 {
-    const [singleStudentData, setSingleStudentData] = useState([]);
+    const [myStudents, setMyStudents] = useState([]);
     
     // const [studentName, setStudentName]= useState([])
 
     useEffect(()=> {
       fetch('/students')
         .then(r => r.json())
-        .then(setSingleStudentData)
+        .then((myStudentsRails)=>{
+          console.log('myStudents' , myStudentsRails)
+          setMyStudents(myStudentsRails)
+        })
     },[])
     // studentName.map(studentObj =>
     //     key={studentObj.id}
@@ -21,6 +24,7 @@ const Student=({filteredStudentInfo, setData})=>
     //     />)
     // console.log(students)
     const navigate=useNavigate()
+    // console.log(myStudents[0].data)
 
 
 const goToStudentId=()=>
@@ -33,30 +37,29 @@ navigate({
           {/* <h2>come on. Anything?</h2> */}
           <select className='select-bar'
           onChange={goToStudentId}>
-          {singleStudentData.map((singleStudentData =>
+          {myStudents.map((singleStudent =>
             {
               return(
                 <option
-                key={singleStudentData.id}
-                value={singleStudentData.id}>
-                  {singleStudentData.name}
+                key={singleStudent.id}
+                value={singleStudent.id}>
+                  {singleStudent.name}
                 </option>
               )
             }))}
-
 
           </select>
           {/* <button onClick={()=>navigate(path)}>back</button> */}
 
 
-          <StudentCard student={singleStudentData}/>
+          {/* <StudentCard student={singleStu}/> */}
             {/* {students.map((student) => (
                 <li key={student.id}>{student.name} </li>
             )
             )} */}
         {/* <li key={students.id}>Name</li> */}
-        <button onClick={()=>navigate('/data')}>Add Data
-        </button>
+        {/* <button onClick={()=>navigate('/data')}>Add Data
+        </button> */}
         </div>    
         
 
@@ -104,4 +107,4 @@ navigate({
 //           )
 //         }
 
-        export default Student;
+        export default Students;

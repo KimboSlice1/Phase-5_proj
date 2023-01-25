@@ -1,92 +1,102 @@
 import React, {useState, useEffect} from 'react'
-import Student from './Student'
+import Students from './Students'
 
 
-function Data({addData, data}){
-    
-
-    const [datum, setDatum]=useState({
-        type:'',
+function Data(){
+    const [newStudentDataObj, setNewStudentDataObj]=useState({
+        data_type:'',
         comment:'',
     });
 
-    const [studentData, setStudentData]=useState([]);
+    const [data, setMyData]=useState('')
+
+const [comment, setComment]=useState('')
+const [type, setType]=useState('')
+    // const [studentData, setStudentData]=useState([]);
     //I'm getting the data array I want until I added in ^^^^^ that
 
+    const addData =(data)=>
+    setMyData(current=> [...current, data])
+//this is what it was!
+    // useEffect(()=> {
+    //     fetch('/data')
+    //     .then(r=>r.json())
+    //     .then(setMyData)
+            
+    // }, [])
+    // console.log(data)
 
-    useEffect(()=> {
-        fetch('/data')
-        .then(r=>r.json())
-        .then(setStudentData)
-    }, [])
-    // console.log(studentData)
+    // useEffect(()=> {
+    //     fetch('/data')
+    //     .then((myDataRails)=> {
+    //         console.log('my Data', myDataRails)
+    //         setMyData(myDataRails)
+    //     })
+    // }, [])
+    // // console.log(studentData)
+    // const [user, setUser] = useState(null)
 
-    // const addStudentData=(datum) => setStudentData(current=> [...current, datum])
-
-    // const updateUser=(user)=>setUser(user)
-
-    // const currentUser =()=>{ }
-    // const [searchText, setSearchText]= useState('')
-
-    // function handleDeleteData(id){
-    //     const deleteData=data.filter(datum => datum.id !== id)
-    //     setStudentData(deleteData)
+    // const handleDataChange=synthE=>{
+    //     console.log(synthE)
+    //     setNewStudentDataObj({...newStudentDataObj, [synthE.target.name]: synthE.target.value})
     // }
-    
-
-    // const filteredStudentData = data.map((eachDataObj) => {
-    //     return eachDataObj.data
-    // })
-
-    const handleDataChange=e=>{
-        console.log(`just selected id: ${e.target.value}`)
-    }
-    const optionElements=studentData.map((studentDatum =>{
-        return(
-            <option key={studentDatum.id}>
-                {studentDatum.type}
-                {studentDatum.comment}
-            </option>
-        )
-    }))
-    // return(
-    //    <ul>
-    //     {studentData.map((studentDatum)=>{
-    //         return(
-    //         <li key={studentDatum.id}>
+    // const optionElements=studentData.map((studentDatum =>{
+    //     return(
+    //         <option key={studentDatum.id}>
     //             {studentDatum.type}
     //             {studentDatum.comment}
-    //         </li>
-    //         )
-    //     }
+    //         </option>
     //     )
-    //     }
-    //    </ul>
-    // )
+    // }))
+    
  
     const handleChange=(e)=>{
-        const{data_type, value}=e.target;
-        setDatum({...datum, [data_type]: value})
+        const{name, value}=e.target;
+        setNewStudentDataObj({...newStudentDataObj, [name]: value})
     };
+    
 
     const handleSubmit=(e)=> {
         e.preventDefault();
-        fetch('/data', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(datum),
-        })
-        .then((r)=>r.json())
-        .then(addData);
+        let newData={
+            comment: newStudentDataObj.comment, 
+            type: newStudentDataObj.data_type
+        }
+
+        console.log('I wanna send this bad boiy')
+        console.log(newData)
+        // fetch('/data', {
+        //     method: 'POST',
+        //     headers: {'Content-Type': 'application/json'},
+        //     body: JSON.stringify(newData),
+        // })
+        
+        // data(newData)
+        // .then((r)=>r.json())
+        // .then(addData);
     };
 
-    
-    
 return (
     <div className='data-container'>
-        <h2>{studentData.name}</h2>
-        <h3>{optionElements}</h3>
-        {/* <h3><Student /></h3> */}
+    
+    {/* <ul>
+        {studentData.map((studentDatum)=>{
+            return(
+            <li key={studentDatum.id}>
+                {studentDatum.type}
+                {studentDatum.comment}
+            </li>
+            )
+        }
+        )
+        }
+    </ul> */}
+        
+        {/* <h2>{.name}</h2> */}
+        {/* <h3>{optionElements}</h3> */}
+        <h3><Students /></h3>
+        <h4>post new student data here</h4>
+        
         <form onSubmit={handleSubmit}>
             {/* <label>
                 User:
@@ -94,7 +104,7 @@ return (
                 className='type-text-box'
                 type='text'
                 name='type'
-                value={datum.type}
+                value={newStudentDataObj.type}
                 onChange={handleChange}
                 />
             </label>
@@ -106,20 +116,24 @@ return (
                 className='comment-text-box'
                 type='text'
                 name='comment'
-                value={datum.comment}
-                onChange={handleDataChange}
-                placeholder='Write Your Data Here'
+                placeholder='comment here'
+                // value=''
+                onChange={handleChange}
+                // onChange={() => {
+
+                // }}
                 />
             </label>
             <label>
                 Type:
-                <select 
-                classname='type-select-box'
+                <input
+                className='type-select-box'
                 type='select'
-                value={datum.data_type}
-                onChange={handleChange}>
-                    
-                </select>
+                name='data_type'
+                placeholder='data type here'
+                // value={newStudentDataObj.data_type}
+                onChange={handleChange}
+                    />
             </label>
             {/* <label>
                 Type:

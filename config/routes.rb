@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   
 
   post '/login', to: 'sessions#create'
+
+  
+
+  delete '/logout', to:'sessions#logout'
+  # delete '/logout', to:'sessions#destroy'
   # get '/userinsession', to: 'application#get_logged_in_user'
   #404 ERROR
 
@@ -15,9 +20,11 @@ Rails.application.routes.draw do
   # get '/login', to:'application#login'
 # CHECK YOUR PASSWORD ERROR IN POSTMAN
 
+  
   # get '/students', to:'students#index'
 
-  get 'data', to: 'data#show'
+  get '/createdata', to: 'data#show'
+  post '/data', to: 'data#create'
 
   # post '/register', to: 'sessions#create'
   # post '/register', to: 'application#create'
@@ -25,7 +32,7 @@ Rails.application.routes.draw do
 
 
   
-  delete '/logout', to:'sessions#destroy'
+  # delete '/logout', to:'sessions#destroy'
 #EMPTY ARRAY
 
 #Qs: How do i know which controller to put routes? why wont the routes work when i try to go to them, what am i doing wrong in react? 

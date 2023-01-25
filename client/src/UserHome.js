@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import Student from './Student'
+import Students from './Students'
 import Data from './Data'
 import { useNavigate } from "react-router-dom";
 
@@ -23,9 +23,11 @@ const navigate =useNavigate();
     return (
         <div className="UserHomePage">
             <h2>Your list of students should go here</h2>
-            <h2>{<Student />}</h2>
+            <h2>{<Students />}</h2>
             
-        <button onClick={()=>navigate('/data')}>Add Data
+        <button 
+        className='add-data-button-user-home'
+        onClick={()=>navigate('/data')}>Add Data
         </button>
 
         </div>

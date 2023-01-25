@@ -55,7 +55,7 @@
     font-family: 'Life Savers'
   }
   .nav-links{
-    color: rgb(63, 205, 146);
+    color: rgb(49, 163, 115);
     margin-right: 26px;
     font-size:larger;
     font-family: 'Riffic Free'
@@ -64,20 +64,28 @@
   .username-form-container{
     height: 20px;
     margin-right: 3px;
+    border-radius: 5px;
+    border: 1px solid palevioletred;
   }
 
   .password-form-container{
     height: 20px;
+    border-radius: 5px;
+    border: 1px solid palevioletred;
   }
 
   .login-submit-button{
     height: 20px;
     margin-left: 3px;
     margin-right: 3px;
+    border-radius: 5px;
+    border: 1px solid palevioletred;
   }
 
   .logout-submit-button{
     height: 20px;
+    border-radius: 5px;
+    border: 1px solid palevioletred;
   }
   
   .select-bar{
@@ -85,19 +93,27 @@
     font-size: large;
     width: 200px;
     height: 43px;
+    border-radius: 15px;
   }
 
   .comment-text-box{
     height: 43px;
     width: 300px;
+    border-radius: 5px;
   }
 
   .type-select-box{
     width: 50px;
     height: 20px;
+    border-radius: 5px;
   }
 
   .data-submit-button{
     width: 40px;
     height: 30px;
+    border-radius: 5px;
+  }
+
+  .add-data-button-user-home{
+    border-radius: 15px;
   }

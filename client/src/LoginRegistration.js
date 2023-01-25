@@ -70,6 +70,7 @@ const [userToLogin, updateUserToLoginInfo]=useState(
       console.log(aGoddamnUser)
 
       setLoggedInUser(aGoddamnUser)
+      // aGoddamnUser.student.data
 
     })
    
@@ -88,6 +89,7 @@ const [userToLogin, updateUserToLoginInfo]=useState(
     fetch('/logout', { method: "DELETE" })
       .then(r => r.json())
       .then(deleteResponse => {
+        console.log('deleteResponse' , deleteResponse)
         setLoggedInUser(null);
       });
   }
@@ -124,13 +126,16 @@ return (
         <input className='login-submit-button'
         type='submit'/>
 
-        <button
-        className='logout-submit-button'
-         onClick={handleLogout}>Logout</button>
+        
 
         {/* <h2>If you wanna fuck around with some data sign up here</h2> */}
 
       </form>
+
+      <button
+        className='logout-submit-button'
+        onClick={handleLogout}>Logout
+      </button>
       
       </div>
 )

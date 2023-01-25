@@ -3,16 +3,33 @@ import './App.css';
 import UserHome from './UserHome'
 import React, { useState, useEffect } from "react";
 import { Routes, Route, useNavigate} from 'react-router-dom';
-import UserLoginRegistration from './LoginRegistration'
+import LoginRegistration from './LoginRegistration'
 import NavBar from './NavBar'
 import Student from './Student'
 import Data from './Data'
 
 
 function App() {
+const [loggedInUser, setLoggedInUser]= useState(null)
+console.log(loggedInUser)
 
+useEffect(()=> 
+{
+  fetch('/user_in_session')
+  .then(r=>r.json())
+  .then((hopefullyAUser)=> {
+    // console.log(hopefullyAUser)
+    if (hopefullyAUser && hopefullyAUser.username){
+      setLoggedInUser(hopefullyAUser)
+    } 
+    else console.log('notAUser')
+    
+  })
+},
+[]
+)
 
-    // fetch('/')
+    // fetch('/login')
     //   .then(r => r.json())
     //   .then(console.log("did it work"))
         
@@ -56,17 +73,11 @@ function App() {
       <NavBar/>
       </h1>
       </header>
-
       
-      {/* <Routes>
-      <Route path='/login' element={<UserLoginRegistration />} />
-      <Route path='/userinsession' element={<UserHome />} />
-      </Routes> */}
-{/* <UserLoginRegistration /> */}
 
       <Routes>
-        <Route path='/' element={<UserLoginRegistration />} />
-        <Route path='/userinsession' element={<UserHome />} />
+        <Route path='/login' element={<LoginRegistration />} />
+        <Route path='/user_in_session' element={<UserHome />} />
         <Route path='/students' element={<Student />} />
         <Route path='/data' element={<Data />}/>
       </Routes>

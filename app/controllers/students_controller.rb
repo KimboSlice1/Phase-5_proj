@@ -4,9 +4,10 @@ class StudentsController < ApplicationController
     def index
         render json: Student.all
     end
+    
 
     def show 
-        student_found = Student.find_by_id(params[:id])
+        student_found = Student.find_by_id(id: params[:id])
         if student_found
             render json: student_found
         else
@@ -35,13 +36,13 @@ class StudentsController < ApplicationController
         end
     end
 
-    def update
-        found_student = Student.find_by_id(params[:id])
-        if found_student.update!(student_params)
-            render json: found_student, status: :ok
-        else
-            render json: found_student.error, status: :unprocessable_entity
-        end
+    # def update
+    #     found_student = Student.find_by_id(params[:id])
+    #     if found_student.update!(student_params)
+    #         render json: found_student, status: :ok
+    #     else
+    #         render json: found_student.error, status: :unprocessable_entity
+    #     end
     end
         
 
@@ -59,6 +60,6 @@ class StudentsController < ApplicationController
     end
 
 
-end
+#end
 
 

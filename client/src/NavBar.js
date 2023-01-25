@@ -16,10 +16,10 @@ function NavBar(){
             {/* <button className="home_button" onClick= {goHome} >Home</button> */}
             
     
-            <NavLink className='nav-links' to="/">
+            <NavLink className='nav-links' to="/login">
                 Login
             </NavLink>
-            <NavLink className='nav-links' to="/userinsession">
+            <NavLink className='nav-links' to="/user_in_session">
                 Home Page
             </NavLink>
             <NavLink className='nav-links' to="/students">

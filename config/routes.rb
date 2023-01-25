@@ -1,20 +1,21 @@
 Rails.application.routes.draw do
-  resources :users, except: [:index]
-  resources :data, only: [:show, :create, :index]
-  resources :students, only: [ :index, :show, :create, :update, :destroy]
+  resources :users, only: [:login, :create, :post]
+  resources :data, only: [:show, :create, :index, :update, :destroy]
+  resources :students, only: [ :index, :show, :create]
+  resources :sessions, only:[ :create, :login]
   
 
-  # post '/login', to: 'sessions#create'
+  post '/login', to: 'sessions#create'
   # get '/userinsession', to: 'application#get_logged_in_user'
   #404 ERROR
 
   get '/user_in_session', to: 'sessions#get_logged_in_user'
   #NULL ERROR
 
-  get '/login', to:'application#login'
+  # get '/login', to:'application#login'
 # CHECK YOUR PASSWORD ERROR IN POSTMAN
 
-  get '/students', to:'students#index'
+  # get '/students', to:'students#index'
 
   get 'data', to: 'data#show'
 

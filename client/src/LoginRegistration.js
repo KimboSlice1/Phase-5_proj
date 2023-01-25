@@ -1,11 +1,12 @@
 import React, { useEffect, useState} from "react";
 import {useNavigate} from 'react-router-dom';
-import NavBar from 'react';
 
 
 
-function UserLoginRegistration(){
+
+function LoginRegistration(){
  const [loggedInUser, setLoggedInUser]=useState(null)
+ const [errors, setErrors] = useState([])
 const navigate = useNavigate()
 
  console.log('state of loggedInUser: ', loggedInUser)
@@ -36,27 +37,52 @@ const [userToLogin, updateUserToLoginInfo]=useState(
   
   
   const handleLoginSubmit=(synthEvent)=>{
-  synthEvent.preventDefault()
+    synthEvent.preventDefault()
   
   
-console.log('am i fucking up here?')
-  
-// method: 'POST', 
-//         headers: {
-//           'Content-type': 'application/json'},
-//         body: JSON.stringify(userToLogin)
-//   }
-//       )
+    //console.log('am i fucking up here?')
+    fetch("/login", 
+    {
+      method: 'POST', 
+        headers: {
+          'Content-type': 'application/json'},
+        body: JSON.stringify(userToLogin)
+    }
+    )
+      // .then(() => {
+      //   navigate('/user_in_session')
+      //   .then(r=>r.json())
+      //   .then(aGoddamnUser =>setLoggedInUser(aGoddamnUser))
+      // })
 
-// /my issue is here? 
-      fetch("/login") 
-      .then(r=>r.json())
-      .then(aGoddamnUser => {
-        navigate('/userinsession');
-        setLoggedInUser(aGoddamnUser)
-      })}
-  console.log("hi Nathan")
+    .then(r=>{
+      if(r.ok) {
+        r.json().then(loggedInUser=>{
+          setLoggedInUser(loggedInUser)
+          navigate('/user_in_session')
+        })
+      }else{
+        r.json().then(json=> setErrors(json.errors))
+      }
+    }
+      )
+    .then(aGoddamnUser => {
+      console.log(aGoddamnUser)
+
+      setLoggedInUser(aGoddamnUser)
+
+    })
+   
+  }
+      
   
+
+      // .then(r=>r.json())
+      // .then(aGoddamnUser => {
+      //   navigate('/userinsession')
+      //   .then(r=>r.json())
+      //   .then(aGoddamnUser =>setLoggedInUser(aGoddamnUser))
+      // })
 
   function handleLogout() {
     fetch('/logout', { method: "DELETE" })
@@ -73,6 +99,12 @@ console.log('am i fucking up here?')
 
 return (
     <div>
+        {/* {
+        loggedInUser ?
+        (<>
+        <h2>Welcome {loggedInUser.name}! </h2>
+        } */}
+
       {/* <NavBar/> */}
       <h2>Yo login before you start fuckin' with these kids' data</h2>
         
@@ -96,10 +128,12 @@ return (
       
       </div>
 )
+      }
 
 // function newFunction() {
 //   navigate('/userinsession');
 // }
-}
 
-export default UserLoginRegistration;
+
+
+export default LoginRegistration;

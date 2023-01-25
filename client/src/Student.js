@@ -7,13 +7,13 @@ function Student(){
     
     // const [studentName, setStudentName]= useState([])
 
-    useEffect(()=>{
+    
       fetch('/students')
         .then(r => r.json())
         .then(arrayOfData =>
-          setStudents(arrayOfData)
+          console.log(arrayOfData)
           )
-    }, [])
+    
 
     // studentName.map(studentObj =>
     //     key={studentObj.id}
@@ -21,15 +21,12 @@ function Student(){
     //     />)
     // console.log(students)
 
-    // const [showData, setShowData] =useState(true)
-    // const toggleBio=()=>{
-    //     setShowData(!showData)
-    // }
+  
 
     return(
         <div className='students-list'>
-            {students.map((students) => (
-                <li key={students.id}>{students.name} </li>
+            {students.map((student) => (
+                <li key={student.id}>{student.name} </li>
             )
             )}
         {/* <li key={students.id}>Name</li> */}

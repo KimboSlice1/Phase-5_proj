@@ -12,6 +12,7 @@ function NavBar(){
     return(
         <nav>
         <div className="navbar">
+            <h1 className='nav-title'></h1>
             
             {/* <button className="home_button" onClick= {goHome} >Home</button> */}
             

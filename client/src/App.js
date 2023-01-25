@@ -69,10 +69,12 @@ useEffect(()=>
     <div className="App">
       {/* <NavBar/> */}
 <header className='App-header'>
-      <h1>Parachute
-      <NavBar/>
-      </h1>
+  <h1 className='app-image-header'>Parachute </h1>
+     
       </header>
+      <h2>
+      <NavBar/>
+      </h2>
       
 
       <Routes>

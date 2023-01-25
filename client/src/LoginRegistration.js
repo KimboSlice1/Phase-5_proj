@@ -98,7 +98,7 @@ const [userToLogin, updateUserToLoginInfo]=useState(
 //  }
 
 return (
-    <div>
+    <div className='login-form-container'>
         {/* {
         loggedInUser ?
         (<>
@@ -106,23 +106,29 @@ return (
         } */}
 
       {/* <NavBar/> */}
-      <h2>Yo login before you start fuckin' with these kids' data</h2>
+      <h2>Let's Login!</h2>
         
         <form onSubmit={handleLoginSubmit}>
-        <input 
+        <input className='username-form-container' 
         onChange={handleOnChangeForUserToLogin}
         name='username'
+        placeholder="username"
         />
 
-        <input type='password'
+        <input 
+        className='password-form-container' type='password'
         onChange={handleOnChangeForUserToLogin}name='password'
+        placeholder="password"
         />
 
-        <input type='submit'/>
+        <input className='login-submit-button'
+        type='submit'/>
 
-        <button onClick={handleLogout}>Logout</button>
+        <button
+        className='logout-submit-button'
+         onClick={handleLogout}>Logout</button>
 
-        <h2>If you wanna fuck around with some data sign up here</h2>
+        {/* <h2>If you wanna fuck around with some data sign up here</h2> */}
 
       </form>
       

@@ -25,13 +25,14 @@ const Student=({filteredStudentInfo, setData})=>
 
 const goToStudentId=()=>
 navigate({
-  pathname: '/students/id',
+  pathname: '/data',
 })  
 
     return(
         <div className='students-list'>
           {/* <h2>come on. Anything?</h2> */}
-          <select onChange={goToStudentId}>
+          <select className='select-bar'
+          onChange={goToStudentId}>
           {singleStudentData.map((singleStudentData =>
             {
               return(

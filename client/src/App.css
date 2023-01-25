@@ -21,16 +21,17 @@
   /* background-image: url(https://i.postimg.cc/pLsRQSnP/Parachute.png); */
   background-color: white;
   height:300px;
-  width: 180px;
+  width: 500px;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: black;
   padding-top: 0px;
+  padding-bottom: 0px;
   margin-top: 0px;
   margin-bottom:0px;
   text-align: center;
-  
+  font-family: 'Riffic Free'
 }
 
 .App-link {
@@ -50,9 +51,53 @@
   background-image: url(https://i.postimg.cc/pLsRQSnP/Parachute.png)
   } */
 
+  .login-form-container{
+    font-family: 'Life Savers'
+  }
   .nav-links{
-    color: rgb(248, 165, 218);
+    color: rgb(63, 205, 146);
     margin-right: 26px;
     font-size:larger;
     font-family: 'Riffic Free'
+  }
+
+  .username-form-container{
+    height: 20px;
+    margin-right: 3px;
+  }
+
+  .password-form-container{
+    height: 20px;
+  }
+
+  .login-submit-button{
+    height: 20px;
+    margin-left: 3px;
+    margin-right: 3px;
+  }
+
+  .logout-submit-button{
+    height: 20px;
+  }
+  
+  .select-bar{
+    font-family: 'life-savers';
+    font-size: large;
+    width: 200px;
+    height: 43px;
+  }
+
+  .comment-text-box{
+    height: 43px;
+    width: 300px;
+  }
+
+  .type-select-box{
+    width: 50px;
+    height: 20px;
+  }
+
+  .data-submit-button{
+    width: 40px;
+    height: 30px;
   }

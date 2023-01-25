@@ -65,8 +65,8 @@ function Data({addData, data}){
     // )
  
     const handleChange=(e)=>{
-        const{type, value}=e.target;
-        setDatum({...datum, [type]: value})
+        const{data_type, value}=e.target;
+        setDatum({...datum, [data_type]: value})
     };
 
     const handleSubmit=(e)=> {
@@ -84,8 +84,9 @@ function Data({addData, data}){
     
 return (
     <div className='data-container'>
+        <h2>{studentData.name}</h2>
         <h3>{optionElements}</h3>
-        <h3><Student /></h3>
+        {/* <h3><Student /></h3> */}
         <form onSubmit={handleSubmit}>
             {/* <label>
                 User:
@@ -100,14 +101,14 @@ return (
             <br /> */}
 
             <label>
-                Comment:
+                Comment
                 <input
                 className='comment-text-box'
                 type='text'
                 name='comment'
                 value={datum.comment}
                 onChange={handleDataChange}
-                
+                placeholder='Write Your Data Here'
                 />
             </label>
             <label>
@@ -128,7 +129,8 @@ return (
                 </select>
             </label> */}
 
-            <button className='data-submit-button' type='submit'>submit
+            <button  className='data-submit-button'
+            type='submit'>submit
             </button>
         </form>
         

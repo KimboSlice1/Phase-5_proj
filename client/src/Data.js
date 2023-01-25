@@ -64,9 +64,10 @@ function Data({addData, data}){
     
 return (
     <div className='data-container'>
+        <h3>{optionElements}</h3>
         <form onSubmit={handleSubmit}>
-            <label>
-                Type:
+            {/* <label>
+                User:
                 <input
                 className='type-text-box'
                 type='text'
@@ -75,7 +76,7 @@ return (
                 onChange={handleChange}
                 />
             </label>
-            <br />
+            <br /> */}
 
             <label>
                 Comment:
@@ -85,22 +86,33 @@ return (
                 name='comment'
                 value={datum.comment}
                 onChange={handleChange}
+                
                 />
             </label>
             <label>
-                User:
+                Type:
+                <select 
+                classname='type-select-box'
+                type='select'
+                value={datum.data_type}
+                onChange={handleChange}>
+                    
+                </select>
+            </label>
+            {/* <label>
+                Type:
                 <select classname='student-text-box'
                 onChange={handleDataChange}>
                     {optionElements}
                 </select>
-            </label>
+            </label> */}
 
             <button className='data-submit-button' type='submit'>submit
             </button>
         </form>
         
-        <input type='text'>
-        </input>
+        {/* <input type='text'>
+        </input> */}
     </div>
     
 )

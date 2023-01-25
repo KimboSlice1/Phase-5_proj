@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import Student from './Student'
 
 
 function Data({addData, data}){
@@ -18,7 +19,24 @@ function Data({addData, data}){
         .then(r=>r.json())
         .then(setStudentData)
     }, [])
-    console.log(studentData)
+    // console.log(studentData)
+
+    // const addStudentData=(datum) => setStudentData(current=> [...current, datum])
+
+    // const updateUser=(user)=>setUser(user)
+
+    // const currentUser =()=>{ }
+    // const [searchText, setSearchText]= useState('')
+
+    // function handleDeleteData(id){
+    //     const deleteData=data.filter(datum => datum.id !== id)
+    //     setStudentData(deleteData)
+    // }
+    
+
+    // const filteredStudentData = data.map((eachDataObj) => {
+    //     return eachDataObj.data
+    // })
 
     const handleDataChange=e=>{
         console.log(`just selected id: ${e.target.value}`)
@@ -61,10 +79,13 @@ function Data({addData, data}){
         .then((r)=>r.json())
         .then(addData);
     };
+
+    
     
 return (
     <div className='data-container'>
         <h3>{optionElements}</h3>
+        <h3><Student /></h3>
         <form onSubmit={handleSubmit}>
             {/* <label>
                 User:
@@ -85,7 +106,7 @@ return (
                 type='text'
                 name='comment'
                 value={datum.comment}
-                onChange={handleChange}
+                onChange={handleDataChange}
                 
                 />
             </label>

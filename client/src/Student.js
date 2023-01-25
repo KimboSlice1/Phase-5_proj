@@ -4,56 +4,58 @@ import StudentCard from './StudentCard'
 
 
 
-const Student=({filteredStudentInfo, setData, path='/Students'})=>
+const Student=({filteredStudentInfo, setData})=>
 {
-    const [students, setStudents] = useState([]);
+    const [singleStudentData, setSingleStudentData] = useState([]);
     
     // const [studentName, setStudentName]= useState([])
 
     useEffect(()=> {
       fetch('/students')
         .then(r => r.json())
-        .then(setStudents)
+        .then(setSingleStudentData)
     },[])
     // studentName.map(studentObj =>
     //     key={studentObj.id}
     //     student={studentObj.name}
     //     />)
     // console.log(students)
-const navigate=useNavigate()
+    const navigate=useNavigate()
 
 
 const goToStudentId=()=>
 navigate({
-  pathname: '/students',
+  pathname: '/students/id',
 })  
 
     return(
         <div className='students-list'>
-          <h2>come on. Anything?</h2>
+          {/* <h2>come on. Anything?</h2> */}
           <select onChange={goToStudentId}>
-          {students.map((student =>
+          {singleStudentData.map((singleStudentData =>
             {
               return(
                 <option
-                key={students.id}
-                value={students.id}>
-                  {students.name}
+                key={singleStudentData.id}
+                value={singleStudentData.id}>
+                  {singleStudentData.name}
                 </option>
               )
             }))}
 
 
           </select>
-          <button onClick={()=>navigate(path)}>back</button>
+          {/* <button onClick={()=>navigate(path)}>back</button> */}
 
 
-          <StudentCard student={students}/>
+          <StudentCard student={singleStudentData}/>
             {/* {students.map((student) => (
                 <li key={student.id}>{student.name} </li>
             )
             )} */}
         {/* <li key={students.id}>Name</li> */}
+        <button onClick={()=>navigate('/data')}>Add Data
+        </button>
         </div>    
         
 

@@ -78,7 +78,7 @@ useEffect(()=>
       <Routes>
         <Route path='/login' element={<LoginRegistration />} />
         <Route path='/user_in_session' element={<UserHome />} />
-        <Route path='/students' element={<Student />} />
+        <Route path='/students/*' element={<Student />} />
         <Route path='/data' element={<Data />}/>
       </Routes>
       {/* <form onSubmit={handleLoginSubmit}>
